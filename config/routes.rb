@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   get  'Shoes' => 'home#shoes'
   get 'Clothes' => 'home#clothes'
   get 'Accessories' => 'home#accessories'
+
+  resources :items
 end

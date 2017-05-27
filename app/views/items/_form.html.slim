@@ -1,0 +1,34 @@
+= form_for(item) do |f|
+  - if item.errors.any?
+    #error_explanation
+      h2
+        = pluralize(food_item.errors.count, "error")
+        | prohibited this food_item from being saved:
+      ul
+        - item.errors.full_messages.each do |message|
+          li= message 
+    
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :price
+    = f.number_field :price
+  .field
+    = f.label :category_id
+    = f.select :category_id, @main_categories.all.map{|e| [e.name, e.id]}
+    // fix the subcategories
+    
+  .field
+    = f.label :category_id
+    = f.select :category_id, @sub_categories.all.map{|e| [e.name, e.id]}
+  .field
+    = f.label :image_url
+    = f.text_field :image_url
+  .actions
+    = f.submit
+
+
