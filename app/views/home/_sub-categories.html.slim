@@ -1,0 +1,9 @@
+
+h1 = @main_category.name
+
+h2 sub categories
+
+.row
+  - @sub_categories.each do |sub|
+    .col-6
+      span =sub.name

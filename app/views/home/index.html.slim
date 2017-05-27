@@ -1,10 +1,6 @@
-h1 Welcome to RailsShop
+h1 Welcome to Rails Shop
 
 .row
-  -@main_categories.each do |cat|
+  - @main_categories.each do |cat|
     .col-4
-      h2 =cat.name
-      -cat.children.each do |sub|
-        h3 = sub.name
-
-   
+      = link_to cat.name, cat.name
