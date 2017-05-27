@@ -1,2 +1,10 @@
-h1 Home#index
-p Find me in app/views/home/index.html.slim
+h1 Welcome to RailsShop
+
+.row
+  -@main_categories.each do |cat|
+    .col-4
+      h2 =cat.name
+      -cat.children.each do |sub|
+        h3 = sub.name
+
+   
