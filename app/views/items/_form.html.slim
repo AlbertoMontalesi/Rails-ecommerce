@@ -18,16 +18,17 @@
     = f.label :price
     = f.number_field :price
   .field
+    = f.label :image_url
+    = f.text_field :image_url
+  .field
     = f.label :category_id
-    = f.select :category_id, @main_categories.all.map{|e| [e.name, e.id]}
+    = f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: true
     // fix the subcategories
     
   .field
     = f.label :subcategory_id
-    = f.select :subcategory_id, @sub_categories.all.map{|e| [e.name, e.id]}
-  .field
-    = f.label :image_url
-    = f.text_field :image_url
+    = f.grouped_collection_select :subcategory_id, Category.order(:name),:subcategory, :name, :id, :name, include_blank: true
+  
   .actions
     = f.submit
 
