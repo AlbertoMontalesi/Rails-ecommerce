@@ -1,4 +1,19 @@
-.row
-  - @categories.each do |cat|
-    .col-4
-      = link_to cat.name, cat.name, class: "btn #{  params[:action] == cat.name.downcase ? 'btn-primary' : 'btn-secondary' }"
+
+ nav.navbar.navbar-toggleable-md.navbar-light.bg-faded
+  button.navbar-toggler.navbar-toggler-right aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button" 
+    span.navbar-toggler-icon
+  = link_to 'Shop', root_path, class: 'navbar-brand'  
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item
+        = link_to 'Shoes', shoes_path, class: "nav-link #{params[:action] == 'shoes' ? 'active' : 'inactive'}"
+      li.nav-item
+        = link_to 'Clothes', clothes_path, class: "nav-link #{params[:action] == 'clothes' ? 'active' : 'inactive'}"
+      li.nav-item
+        = link_to 'Accessories', accessories_path, class: "nav-link #{params[:action] == 'accessories' ? 'active' : 'inactive'}"
+
+
+
+
+
+       
