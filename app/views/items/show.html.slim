@@ -1,0 +1,7 @@
+h1 Show items
+
+.row
+  - @items.each do |item|
+    .col-4
+      h2 = item.name
+      = image_tag(item.image_url, class: 'item-image')
