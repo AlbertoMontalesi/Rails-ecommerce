@@ -23,8 +23,8 @@
     // fix the subcategories
     
   .field
-    = f.label :category_id
-    = f.select :category_id, @sub_categories.all.map{|e| [e.name, e.id]}
+    = f.label :subcategory_id
+    = f.select :subcategory_id, @sub_categories.all.map{|e| [e.name, e.id]}
   .field
     = f.label :image_url
     = f.text_field :image_url

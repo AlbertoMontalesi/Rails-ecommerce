@@ -4,6 +4,8 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @sub_categories = @sub_categories.where
+    @sub_categories = Category.where(id: [@main_category.child_ids])
   end
 
   def def_main_category
@@ -12,5 +14,9 @@ class ItemsController < ApplicationController
 
   def def_sub_category
     @sub_categories = Category.where.not(ancestry: nil)
+  end
+
+  def item_params
+    
   end
 end

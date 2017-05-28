@@ -39,8 +39,6 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    ancestry (3.0.0)
-      activerecord (>= 3.2.0)
     arel (7.1.4)
     autoprefixer-rails (6.7.7)
       execjs
@@ -171,7 +169,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ancestry
   bootstrap (~> 4.0.0.alpha6)
   byebug
   coffee-rails (~> 4.2)
