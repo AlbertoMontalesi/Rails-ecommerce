@@ -11,10 +11,19 @@
         = link_to 'Clothes', clothes_path, class: "nav-link #{params[:action] == 'clothes' ? 'active' : 'inactive'}"
       li.nav-item
         = link_to 'Accessories', accessories_path, class: "nav-link #{params[:action] == 'accessories' ? 'active' : 'inactive'}"
-      li.nav-item
-        = link_to 'Register as user ', new_user_registration_path, class: 'nav-link'
-      li.nav-item
-        = link_to 'Register as Retailer', new_retailer_registration_path, class: 'nav-link'
+        //dynamically display buttons
+      - if current_user
+        = link_to "logout", destroy_user_session_path, method: :delete, class: "nav-link"
+      - elsif current_retailer
+        = link_to "logout", destroy_retailer_session_path, method: :delete, class: "nav-link"
+      - else
+        = link_to "register as User", new_user_registration_path, class: "nav-link"
+        = link_to "login as User", new_user_session_path, class: "nav-link"
+        = link_to "register as Retailer", new_retailer_registration_path, class: "nav-link"
+        = link_to "login as Retailer", new_retailer_session_path, class: "nav-link"
+      
+
+      
 
 
 
