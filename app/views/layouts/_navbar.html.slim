@@ -11,8 +11,10 @@
         = link_to 'Clothes', clothes_path, class: "nav-link #{params[:action] == 'clothes' ? 'active' : 'inactive'}"
       li.nav-item
         = link_to 'Accessories', accessories_path, class: "nav-link #{params[:action] == 'accessories' ? 'active' : 'inactive'}"
-
-
+      li.nav-item
+        = link_to 'Register as user ', new_user_registration_path, class: 'nav-link'
+      li.nav-item
+        = link_to 'Register as Retailer', new_retailer_registration_path, class: 'nav-link'
 
 
 
