@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+before_action :authenticate_retailer!, :except => [:show, :index]
 
   def new
     @item = Item.new
