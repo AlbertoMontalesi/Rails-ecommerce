@@ -1,9 +1,15 @@
 h1 =@category.name
 
-
+.btn-group
+  - @subcategory.each do |sub|
+      a href='#{@category.name.downcase}?sub=#{sub.id}' class=("btn #{params[:sub] == sub.id.to_s ? ' btn-primary' : 'btn-secondary'}") = sub.name
+      
 .row
   - unless @items.nil?
     - @items.each do |item|
       .col-4
         h2 = item.name
         = image_tag(item.image_url, class: 'item-image')
+
+
+   

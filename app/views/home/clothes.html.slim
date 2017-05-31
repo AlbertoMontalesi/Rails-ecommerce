@@ -1,7 +1,3 @@
 
 
 = render 'sub-categories'
-
-.btn-group
-  - @subcategory.each do |sub|
-      = link_to sub.name , clothes_path(sub: sub.id), class: "btn #{params[:sub] == sub.id.to_s ? ' btn-primary' : 'btn-secondary'}"

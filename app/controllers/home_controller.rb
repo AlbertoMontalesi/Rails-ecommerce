@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
     @category = Category.all
+    @items = Item .all
   end
 
   def clothes
