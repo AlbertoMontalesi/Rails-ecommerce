@@ -18,12 +18,10 @@
       - elsif current_retailer
         = link_to "logout #{current_retailer.email}", destroy_retailer_session_path, method: :delete, class: "nav-link"
       - else
-        = link_to "register as User", new_user_registration_path, class: "nav-link"
-        = link_to "login as User", new_user_session_path, class: "nav-link"
-        = link_to "register as Retailer", new_retailer_registration_path, class: "nav-link"
-        = link_to "login as Retailer", new_retailer_session_path, class: "nav-link"
+        = link_to "login as User", new_user_session_path, class: "nav-link btn btn-secondary"
+        = link_to "login as Retailer", new_retailer_session_path, class: "nav-link btn btn-secondary"
       li.nav-item
-        = link_to 'Sell something', new_item_path, class:'nav-link'
+        = link_to 'Sell something', new_item_path, class:'nav-link btn btn-success'
 
       
 

@@ -13,4 +13,6 @@ class ApplicationController < ActionController::Base
   def set_subcategories
     @subcategories = Subcategory.all
   end
+
+  
 end

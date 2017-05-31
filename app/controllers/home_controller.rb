@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     @category = Category.all
-    @items = Item .all
+    @items = Item.all
   end
 
   def clothes
@@ -26,9 +26,9 @@ end
     @subcategory = Subcategory.where(category_id: @category.id)
  end
 
-  def set_item
-    @items = Item.where(subcategory_id: @subcategory.ids)
-  end
+  # def set_item
+  #   @items = Item.where(subcategory_id: @subcategory.ids)
+  # end
 
 def current_subcategory
   if params[:sub].present?

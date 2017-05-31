@@ -12,12 +12,13 @@ br
 br
 
 h2 View all
-
+h5 add filters here
 .row
   - @items.each do |item|
-    .col-2
-      = link_to item.name, item_path(item.id)
-      = image_tag(item.image_url, class: 'item-image')
-
-
-
+    .col-3.card
+      a href='items/#{item.id}'
+        = image_tag(item.image_url, class: 'item-image card-img-top')
+      .card-block
+        = link_to item.name, item_path(item.id)
+        p = item.price
+          
