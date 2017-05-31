@@ -12,7 +12,12 @@ br
 br
 
 h2 View all
-h5 add filters here
+
+.btn-group
+  .btn.btn-secondary = sort_link "name" 
+  .btn.btn-secondary = sort_link "price"
+  .btn.btn-secondary = sort_link "created_at"  
+
 .row
   - @items.each do |item|
     .col-3.card
