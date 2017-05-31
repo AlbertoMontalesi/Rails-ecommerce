@@ -2,4 +2,7 @@ h1 Welcome to Rails Shop
 
 - @category.each do |cat|
   h2 = cat.name
+  - @subcategories.where(category_id: cat.id).each do |sub|
+    a href='#{cat.name.downcase}?sub=#{sub.id}' = sub.name
+
 
