@@ -13,10 +13,25 @@ br
 
 h2 View all
 
+= search_form_for @search, url: root_path do |f|
+  .field
+    = f.label :name_cont, "name contains"
+    = f.text_field :name_cont
+  .field
+    = f.label :price_gteq, "Price betwen"
+    = f.text_field :price_gteq
+    = f.label :price_lteq, "and"
+    = f.text_field :price_lteq
+  .action
+    = f.submit "Search"
+
 .btn-group
-  .btn.btn-secondary = sort_link "name" 
-  .btn.btn-secondary = sort_link "price"
-  .btn.btn-secondary = sort_link "created_at"  
+  .btn.btn-secondary 
+    = sort_link @search, :name, "Name"
+  .btn.btn-secondary 
+    = sort_link @search, :price, "Price"
+  .btn.btn-secondary 
+    = sort_link @search, :created_at, "Date"
 
 .row
   - @items.each do |item|

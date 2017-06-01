@@ -1,10 +1,10 @@
 class HomeController < ApplicationController
-  helper_method :sort_column, :sort_direction
 
 
   def index
     @category = Category.all
-    @items = Item.order("#{sort_column} #{sort_direction}")
+    @search = Item.ransack(params[:q])
+    @items = @search.result
   end
 
   def clothes
@@ -38,18 +38,6 @@ def current_subcategory
     @current_subcategory = Subcategory.find(params[:sub])
     @items = @current_subcategory.items
   end
-end
-
-def sortable_columns
-  ["name", "price"]
-end
-
-def sort_column
-  sortable_columns.include?(params[:column]) ? params[:column] : "name"
-end
-
-def sort_direction
-  %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
 end
 
 end
