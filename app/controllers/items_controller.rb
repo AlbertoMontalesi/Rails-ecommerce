@@ -17,5 +17,7 @@ before_action :authenticate_retailer!, :except => [:show, :index]
   def set_retailer
     @retailer = Retailer.find_by_id(@item.retailer_id)
   end
+
+  
  
 end

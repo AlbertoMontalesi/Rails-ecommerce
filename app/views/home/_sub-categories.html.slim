@@ -3,7 +3,19 @@ h1 =@category.name
 .btn-group
   - @subcategory.each do |sub|
       a href='#{@category.name.downcase}?sub=#{sub.id}' class=("btn #{params[:sub] == sub.id.to_s ? ' btn-primary' : 'btn-secondary'}") = sub.name
-      
+
+= search_form_for @search, url: "#{@category.name.downcase}", method: :post do |f|
+  .field
+    = f.label :name_cont, "name contains"
+    = f.text_field :name_cont
+  .field
+    = f.label :price_gteq, "Price betwen"
+    = f.text_field :price_gteq
+    = f.label :price_lteq, "and"
+    = f.text_field :price_lteq
+  .action
+    = f.submit "Search"
+
 .row
   - unless @items.nil?
     - @items.each do |item|

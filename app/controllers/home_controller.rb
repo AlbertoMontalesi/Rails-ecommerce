@@ -1,6 +1,4 @@
 class HomeController < ApplicationController
-
-
   def index
     @category = Category.all
     @search = Item.ransack(params[:q])
@@ -11,34 +9,40 @@ class HomeController < ApplicationController
     @category = Category.find_by_id(1)
     set_subcategory
     current_subcategory
+    search_item
   end
 
   def shoes
     @category = Category.find_by_id(2)
     set_subcategory
     current_subcategory
+    search_item
  end
 
   def accessories
     @category = Category.find_by_id(3)
     set_subcategory
     current_subcategory
+    search_item
 end
+
+  private
 
   def set_subcategory
     @subcategory = Subcategory.where(category_id: @category.id)
  end
 
-  # def set_item
-  #   @items = Item.where(subcategory_id: @subcategory.ids)
-  # end
-private 
-def current_subcategory
-  if params[:sub].present?
-    @current_subcategory = Subcategory.find(params[:sub])
-    @items = @current_subcategory.items
+  def search_item
+    @search = @items.ransack(params[:q])
+    @items = @search.result
+  end
+
+  def current_subcategory
+    if params[:sub].present?
+      @current_subcategory = Subcategory.find(params[:sub])
+      @items = @current_subcategory.items
+    else
+      @items = @category.items
+    end
   end
 end
-
-end
-

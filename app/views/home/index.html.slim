@@ -13,7 +13,7 @@ br
 
 h2 View all
 
-= search_form_for @search, url: root_path do |f|
+= search_form_for @search, url: root_path, method: :post do |f|
   .field
     = f.label :name_cont, "name contains"
     = f.text_field :name_cont
