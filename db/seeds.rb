@@ -121,26 +121,30 @@ if Item.count === 0
                price: '10',
                image_url: 'http://images.saddlebackleather.com/image/upload/w_1280,h_1280,c_fill/kellynolte-01-50-0003-34-DCB-20140706095703-01.jpg',
                category_id: 3,
-               subcategory_id: 5)
+               subcategory_id: 5,
+               retailer_id: 2)
   Item.create!(name: 'Belt 2',
                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consequat sapien et enim ullamcorper, vel tristique nunc aliquam. Morbi dapibus lorem ut leo molestie venenatis. Morbi at dictum ex, ac elementum metus. Nulla facilisis magna ac erat convallis accumsan. Praesent nec diam ut eros fermentum commodo. Etiam nec dapibus enim. Mauris elementum vulputate enim, non sodales mauris fringilla quis. ',
                price: '20',
                image_url: 'https://bisondesigns.com/sites/default/files/Rough%20Cut%20Leather%20Belt%20ws.jpg',
-               category_id: 1,
-               subcategory_id: 5)
+               category_id: 3,
+               subcategory_id: 5,
+               retailer_id: 2)
   ## sunglasses - sub 6
   Item.create!(name: 'Rayban',
                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consequat sapien et enim ullamcorper, vel tristique nunc aliquam. Morbi dapibus lorem ut leo molestie venenatis. Morbi at dictum ex, ac elementum metus. Nulla facilisis magna ac erat convallis accumsan. Praesent nec diam ut eros fermentum commodo. Etiam nec dapibus enim. Mauris elementum vulputate enim, non sodales mauris fringilla quis. ',
                price: '30',
                image_url: 'http://cdn2.jomashop.com/media/catalog/product/r/a/rayban-aviator-matte-gold-brown-58mm-unisex-sunglasses-11285-rb8029k-040kn3-5814.jpg',
-               category_id: 1,
-               subcategory_id: 6)
+               category_id: 3,
+               subcategory_id: 6,
+               retailer_id: 1)
   Item.create!(name: 'oakley',
                description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consequat sapien et enim ullamcorper, vel tristique nunc aliquam. Morbi dapibus lorem ut leo molestie venenatis. Morbi at dictum ex, ac elementum metus. Nulla facilisis magna ac erat convallis accumsan. Praesent nec diam ut eros fermentum commodo. Etiam nec dapibus enim. Mauris elementum vulputate enim, non sodales mauris fringilla quis. ',
                price: '20',
                image_url: 'https://www.framesdirect.com/product_elarge_images/oakley-crankshaft-sunglasses-OO9239-01.jpg',
-               category_id: 1,
-               subcategory_id: 6)
+               category_id: 3,
+               subcategory_id: 6,
+               retailer_id: 2)
 
 end
 

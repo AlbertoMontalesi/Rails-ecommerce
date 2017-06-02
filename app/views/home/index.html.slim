@@ -35,10 +35,5 @@ h2 View all
 
 .row
   - @items.each do |item|
-    .col-3.card
-      a href='items/#{item.id}'
-        = image_tag(item.image_url, class: 'item-image card-img-top')
-      .card-block
-        = link_to item.name, item_path(item.id)
-        p = item.price
+      = render "item_row", item: item, order_item: @order_item
           
