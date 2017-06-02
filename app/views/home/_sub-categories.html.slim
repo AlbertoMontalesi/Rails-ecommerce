@@ -17,11 +17,6 @@ h1 =@category.name
     = f.submit "Search"
 
 .row
-  - unless @items.nil?
-    - @items.each do |item|
-      .col-4
-        h2 = item.name
-        = image_tag(item.image_url, class: 'item-image')
-
-
+  - @items.each do |item|
+      = render "item_row", item: item, order_item: @order_item
    

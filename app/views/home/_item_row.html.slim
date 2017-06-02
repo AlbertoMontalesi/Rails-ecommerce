@@ -1,9 +1,8 @@
-
   .col-4
     .card
       = image_tag(item.image_url, class: 'item-image card-img-top')
       .card-block
-      h4= item.name
+      h4 = item.name
       = form_for order_item, remote: true do |f|
         h4.text-right
           | Unit Price:
@@ -13,3 +12,5 @@
           .input-group-btn
             = f.hidden_field :item_id, value: item.id
             = f.submit "Add to Cart", class: "btn btn-primary"
+
+

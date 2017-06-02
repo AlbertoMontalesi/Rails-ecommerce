@@ -1,5 +1,5 @@
 
- nav.navbar.navbar-toggleable-md.navbar-light.bg-faded
+ nav.navbar.navbar-toggleable-md.navbar-light.bg-faded.fixed-top
   button.navbar-toggler.navbar-toggler-right aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button" 
     span.navbar-toggler-icon
   = link_to 'Shop', root_path, class: 'navbar-brand'  
@@ -14,7 +14,6 @@
         //dynamically display buttons
       - if current_user
         = link_to "logout #{current_user.email}", destroy_user_session_path, method: :delete, class: "nav-link"
-        
       - elsif current_retailer
         = link_to "logout #{current_retailer.email}", destroy_retailer_session_path, method: :delete, class: "nav-link"
       - else
@@ -22,5 +21,6 @@
         = link_to "login as Retailer", new_retailer_session_path, class: "nav-link btn btn-secondary"
       li.nav-item
         = link_to 'Sell something', new_item_path, class:'nav-link btn btn-success'
+      - if current_user
       li.nav-item.cart-text 
         = render 'layouts/cart_text'

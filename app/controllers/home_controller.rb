@@ -5,7 +5,7 @@ class HomeController < ApplicationController
     @category = Category.all
     @search = Item.ransack(params[:q])
     @items = @search.result
-    @order_item = current_order.order_items.new 
+    set_order_item
   end
 
   def clothes
@@ -13,6 +13,7 @@ class HomeController < ApplicationController
     set_subcategory
     current_subcategory
     search_item
+    set_order_item
   end
 
   def shoes
@@ -20,6 +21,7 @@ class HomeController < ApplicationController
     set_subcategory
     current_subcategory
     search_item
+    set_order_item
  end
 
   def accessories
@@ -27,9 +29,14 @@ class HomeController < ApplicationController
     set_subcategory
     current_subcategory
     search_item
+    set_order_item
 end
 
   private
+
+  def set_order_item
+    @order_item = current_order.order_items.new 
+  end
 
   def set_subcategory
     @subcategory = Subcategory.where(category_id: @category.id)

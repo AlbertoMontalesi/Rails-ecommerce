@@ -13,6 +13,7 @@ br
 
 h2 View all
 
+// display ransack search form
 = search_form_for @search, url: root_path, method: :post do |f|
   .field
     = f.label :name_cont, "name contains"
@@ -24,7 +25,7 @@ h2 View all
     = f.text_field :price_lteq
   .action
     = f.submit "Search"
-
+// display order buttons
 .btn-group
   .btn.btn-secondary 
     = sort_link @search, :name, "Name"
@@ -32,8 +33,7 @@ h2 View all
     = sort_link @search, :price, "Price"
   .btn.btn-secondary 
     = sort_link @search, :created_at, "Date"
-
+//display all the items
 .row
   - @items.each do |item|
       = render "item_row", item: item, order_item: @order_item
-          

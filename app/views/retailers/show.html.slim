@@ -2,7 +2,16 @@ h1 View your profile
 
 
 h2
-  | This is your profile #{@retailer.name}
+  | This is the profile of #{@retailer.name}
+
+.row
+  - @items.each do |item|
+    .col-4
+      .card
+        = image_tag(item.image_url, class: 'item-image card-img-top')
+        .card-block
+        h4 = item.name
+      
 
 
 = link_to "Edit", edit_retailer_registration_path(@retailer)

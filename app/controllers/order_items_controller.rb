@@ -1,10 +1,15 @@
 class OrderItemsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @order = current_order
     @order_item = @order.order_items.new(order_items_params)
-    @order.save
+    if @order.save
+      redirect_to carts_show_path
+    end
+
     session[:order_id] = @order.id
-  end
+end
 
   def update
     @order = current_order

@@ -6,7 +6,7 @@ before_action :authenticate_retailer!, :except => [:show, :index]
   end
 
   def show
-    @item = Item.find(params[:id]
+    @item = Item.find(params[:id])
     set_retailer
   end
 
