@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   get 'accessories' => 'home#accessories'
 
   resource :cart, only: [:show]
-  resources :order_items, only: [:create, :update, :destroy]
+  resources :order_items, only: [:create, :update, :destroy], defaults: { format: 'js' }
   resources :items
   resources :home do
     collection { post :search, to: 'home#index' }
