@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   before_action :set_categories
   before_action :set_subcategories
 
+  helper_method :current_order
+
   include DeviseWhitelist
 
   def set_categories
@@ -14,5 +16,11 @@ class ApplicationController < ActionController::Base
     @subcategories = Subcategory.all
   end
 
-  
+  def current_order
+    if !session[:order_id].nil?
+      Order.find(session[:order_id])
+    else
+      Order.new
+    end
+  end
 end

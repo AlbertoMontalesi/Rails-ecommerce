@@ -22,11 +22,6 @@
         = link_to "login as Retailer", new_retailer_session_path, class: "nav-link btn btn-secondary"
       li.nav-item
         = link_to 'Sell something', new_item_path, class:'nav-link btn btn-success'
-
+      li.nav-item.cart-text 
+        = link_to "#{current_order.order_items.size} Items in Cart ( #{number_to_currency current_order.subtotal} )", cart_path, class: "btn btn-link"
       
-
-      
-
-
-
-       

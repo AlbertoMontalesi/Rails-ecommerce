@@ -1,8 +1,11 @@
 class HomeController < ApplicationController
+  
+
   def index
     @category = Category.all
     @search = Item.ransack(params[:q])
     @items = @search.result
+    @order_item = current_order.order_items.new 
   end
 
   def clothes

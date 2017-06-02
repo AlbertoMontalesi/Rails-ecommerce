@@ -6,6 +6,16 @@ else
   puts ' You already have some sections'
 end
 
+if OrderStatus.count === 0
+  %w(InProgress Placed Shipped Cancelled).each do |name|
+    OrderStatus.create!(name: name)
+  end
+else
+  puts ' You already have some statuses'
+end
+
+
+
 if Subcategory.count === 0
   # create two  clothes subcategories
   Subcategory.create!(name: 'Casual', category_id: 1)
