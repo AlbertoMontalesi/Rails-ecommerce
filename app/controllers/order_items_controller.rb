@@ -4,12 +4,17 @@ class OrderItemsController < ApplicationController
   def create
     @order = current_order
     @order_item = @order.order_items.new(order_items_params)
-    if @order.save
-      redirect_to carts_show_path
+    existing_order = @order.order_items.where(item_id: params[:order_item][:item_id])
+    if existing_order.count >= 1
+      existing_order.last.update_column(:quantity, existing_order.last.quantity + params[:order_item][:quantity].to_i)
+    else
+      @order.save
     end
-
+    if @order.save
+      redirect_to cart_path(@order)
+    end  
     session[:order_id] = @order.id
-end
+  end
 
   def update
     @order = current_order
