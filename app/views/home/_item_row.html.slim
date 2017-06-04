@@ -9,8 +9,7 @@
           span style=("color: green") = number_to_currency item.price
         .input-group
           = f.number_field :quantity, value: 1, class: "form-control", min: 1
-          .input-group-btn
-            = f.hidden_field :item_id, value: item.id
-            = f.submit "Add to Cart", class: "btn btn-primary"
+          = f.hidden_field :item_id, value: item.id
+          = f.submit "Add to Cart", class: "btn btn-primary"
 
 

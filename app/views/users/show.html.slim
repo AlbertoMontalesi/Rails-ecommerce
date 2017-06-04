@@ -6,3 +6,23 @@ h2
 
 
 = link_to "Edit", edit_user_registration_path(@user)
+
+h3 Your orders
+
+.row
+  - @order_items.each do |order_item|
+    .card.col-6
+      - Item.where(id: order_item.item_id).each do |item|
+        h3.card-title = item.name
+        br
+        .card-text
+          p 
+            | Unit Price:  #{order_item.unit_price}
+              
+          p 
+            |  Quantity: #{order_item.quantity}
+            
+          p 
+            | Total Price: #{order_item.total_price}
+           
+      

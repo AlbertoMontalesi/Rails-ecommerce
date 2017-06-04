@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
 
   include DeviseWhitelist
 
+
+
   def set_categories
     @categories = Category.all
   end

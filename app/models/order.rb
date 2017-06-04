@@ -3,12 +3,20 @@ class Order < ApplicationRecord
   has_many :order_items
   before_validation :set_order_status
   before_save :update_subtotal
+  # before_save :set_user
+
+
 
   def subtotal
     order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
   end
 
   private
+
+  # fix 
+  # def set_user
+  #     self.user_id = current_user.id
+  # end
 
   def set_order_status
     ## set to inprogress

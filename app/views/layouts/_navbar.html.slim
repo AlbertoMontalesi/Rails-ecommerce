@@ -14,6 +14,7 @@
         //dynamically display buttons
       - if current_user
         = link_to "logout #{current_user.email}", destroy_user_session_path, method: :delete, class: "nav-link"
+        = link_to "#{current_user.name}", user_path(current_user), class: "nav-link"
       - elsif current_retailer
         = link_to "logout #{current_retailer.email}", destroy_retailer_session_path, method: :delete, class: "nav-link"
       - else
@@ -24,3 +25,4 @@
       - if current_user
       li.nav-item.cart-text 
         = render 'layouts/cart_text'
+      
