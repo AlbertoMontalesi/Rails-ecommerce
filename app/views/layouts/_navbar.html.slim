@@ -15,14 +15,14 @@
       - if current_user
         = link_to "logout #{current_user.email}", destroy_user_session_path, method: :delete, class: "nav-link"
         = link_to "#{current_user.name}", user_path(current_user), class: "nav-link"
+        = render 'layouts/cart_text'
       - elsif current_retailer
         = link_to "logout #{current_retailer.email}", destroy_retailer_session_path, method: :delete, class: "nav-link"
       - else
         = link_to "login as User", new_user_session_path, class: "nav-link btn btn-secondary"
         = link_to "login as Retailer", new_retailer_session_path, class: "nav-link btn btn-secondary"
       li.nav-item
-        = link_to 'Sell something', new_item_path, class:'nav-link btn btn-success'
+        = link_to 'Sell something', new_item_path, class:'nav-link btn btn-success', method: :get
       - if current_user
-      li.nav-item.cart-text 
-        = render 'layouts/cart_text'
+      
       
